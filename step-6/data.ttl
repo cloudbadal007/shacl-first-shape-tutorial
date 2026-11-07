@@ -1,0 +1,18 @@
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:  <http://example.org/> .
+
+ex:spending-2025
+    a ex:PublishedStatistic ;
+    ex:publishedOn "2026-03-01"^^xsd:date ;
+    ex:publicUrl <https://example.org/stats/spending-2025> .
+
+ex:draft-q3
+    a ex:PublishedStatistic .
+
+ex:review-memo
+    a ex:PublishedStatistic , ex:InternalReport ;
+    ex:publishedOn "2026-05-01"^^xsd:date ;
+    ex:publicUrl <https://example.org/stats/review-memo> .
+
+ex:monthly-oct
+    a ex:MonthlySpendingSummary .

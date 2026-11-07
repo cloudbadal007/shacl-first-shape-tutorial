@@ -1,0 +1,48 @@
+@prefix sh:  <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:  <http://example.org/> .
+
+# The step-6 shape, plus the three "Try it yourself" rules.
+
+ex:PublishedStatisticShape
+    a sh:NodeShape ;
+    sh:targetClass ex:PublishedStatistic ;
+    sh:property [
+        sh:path ex:publishedOn ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:date ;
+        sh:message "A published statistic needs exactly one publication date." ;
+    ] ;
+    # Try it yourself 1: no publication date later than 2026.
+    # Kept as its own rule so it gets its own message.
+    sh:property [
+        sh:path ex:publishedOn ;
+        sh:maxInclusive "2026-12-31"^^xsd:date ;
+        sh:message "A published statistic cannot be dated after 2026." ;
+    ] ;
+    sh:property [
+        sh:path ex:publicUrl ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:message "A published statistic needs a public URL." ;
+    ] ;
+    # Try it yourself 2: exactly one owner.
+    sh:property [
+        sh:path ex:owner ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "A published statistic needs exactly one owner." ;
+    ] ;
+    sh:not [ sh:class ex:InternalReport ] ;
+    sh:message "A dataset cannot be both a published statistic and an internal report." .
+
+# Try it yourself 3: an internal report must not have a public URL.
+ex:InternalReportShape
+    a sh:NodeShape ;
+    sh:targetClass ex:InternalReport ;
+    sh:property [
+        sh:path ex:publicUrl ;
+        sh:maxCount 0 ;
+        sh:message "An internal report must not have a public URL." ;
+    ] .

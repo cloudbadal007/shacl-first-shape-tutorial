@@ -1,0 +1,4 @@
+Conforms: False
+- audit-notes: An internal report must not have a public URL.
+- forecast-2027: A published statistic cannot be dated after 2026.
+- travel-2025: A published statistic needs exactly one owner.

@@ -1,0 +1,4 @@
+Conforms: False
+- draft-q3: A published statistic needs a public URL.
+- draft-q3: A published statistic needs exactly one publication date.
+- review-memo: A dataset cannot be both a published statistic and an internal report.

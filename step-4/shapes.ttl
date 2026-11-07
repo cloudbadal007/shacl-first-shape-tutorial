@@ -1,0 +1,14 @@
+@prefix sh:  <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:  <http://example.org/> .
+
+ex:PublishedStatisticShape
+    a sh:NodeShape ;
+    sh:targetClass ex:PublishedStatistic ;
+    sh:property [
+        sh:path ex:publishedOn ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:date ;
+        sh:message "A published statistic needs exactly one publication date." ;
+    ] .

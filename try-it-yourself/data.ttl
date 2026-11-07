@@ -1,0 +1,31 @@
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:  <http://example.org/> .
+
+# Passes every rule.
+ex:spending-2025
+    a ex:PublishedStatistic ;
+    ex:publishedOn "2026-03-01"^^xsd:date ;
+    ex:publicUrl <https://example.org/stats/spending-2025> ;
+    ex:owner ex:finance-team .
+
+# Breaks rule 1: dated after 2026.
+ex:forecast-2027
+    a ex:PublishedStatistic ;
+    ex:publishedOn "2027-01-15"^^xsd:date ;
+    ex:publicUrl <https://example.org/stats/forecast-2027> ;
+    ex:owner ex:finance-team .
+
+# Breaks rule 2: no owner.
+ex:travel-2025
+    a ex:PublishedStatistic ;
+    ex:publishedOn "2026-04-01"^^xsd:date ;
+    ex:publicUrl <https://example.org/stats/travel-2025> .
+
+# Breaks rule 3: an internal report with a public URL.
+ex:audit-notes
+    a ex:InternalReport ;
+    ex:publicUrl <https://example.org/stats/audit-notes> .
+
+# Passes: an internal report with no public URL.
+ex:team-notes
+    a ex:InternalReport .

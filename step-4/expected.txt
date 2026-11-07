@@ -1,0 +1,2 @@
+Conforms: False
+- draft-q3: A published statistic needs exactly one publication date.

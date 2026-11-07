@@ -1,0 +1,22 @@
+@prefix sh:  <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:  <http://example.org/> .
+
+ex:PublishedStatisticShape
+    a sh:NodeShape ;
+    sh:targetClass ex:PublishedStatistic ;
+    sh:property [
+        sh:path ex:publishedOn ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:date ;
+        sh:message "A published statistic needs exactly one publication date." ;
+    ] ;
+    sh:property [
+        sh:path ex:publicUrl ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:message "A published statistic needs a public URL." ;
+    ] ;
+    sh:not [ sh:class ex:InternalReport ] ;
+    sh:message "A dataset cannot be both a published statistic and an internal report." .
