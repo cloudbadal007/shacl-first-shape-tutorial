@@ -1,0 +1,3 @@
+OWL reasoner: inconsistent
+alice and a-smith are declared different, but a dataset
+may have only one owner, so they would have to be the same.

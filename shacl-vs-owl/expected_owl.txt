@@ -1,0 +1,3 @@
+OWL reasoner: no errors
+New facts it inferred:
+- a-smith is the same as alice

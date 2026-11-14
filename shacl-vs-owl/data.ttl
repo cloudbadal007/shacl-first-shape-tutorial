@@ -1,0 +1,5 @@
+@prefix ex: <http://example.org/> .
+
+ex:sales-2025    a ex:Dataset ; ex:hasOwner ex:alice .
+ex:claims-2025   a ex:Dataset .
+ex:invoices-2025 a ex:Dataset ; ex:hasOwner ex:alice , ex:a-smith .
